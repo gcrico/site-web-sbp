@@ -136,11 +136,11 @@ function sortAndUpdate(i) {
   // update the EXISTING bar chart with the newly-sorted mitPressureSurvey
   updateBarChart();
 }
-function handleMouseOver() {  // Add interactivity
+/*function handleMouseOver() {  // Add interactivity
 
             // Use D3 to select element, change color and size
             d3.select(this).attr(fill: "blue");
-          }
+          }*/
 // run this code after your page loads
 $(function() {
   // set the initial dimensions for the SVG container
