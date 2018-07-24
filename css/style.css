@@ -75,6 +75,13 @@ h1 {
     text-shadow: 2px 2px rgba(199, 229, 255, 0.68);
 }
 
+h2, h3, h4, h5 {
+    font-family: Roboto;
+    text-align: center;
+    text-shadow: 1px 1px rgba(199, 229, 255, 0.38);
+}
+
+
 .panel h1 {
     font-family:'Roboto', sans-serif;
     font-weight: 300;
@@ -230,3 +237,4 @@ h1 {
   height: 28px;
   pointer-events: none;
 }
+

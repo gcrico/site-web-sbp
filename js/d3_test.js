@@ -34,8 +34,8 @@ var mitPressureSurvey = [
 var songData = [
 {name: "Cadavre Exquis", id: "cadavre", created: "2017-04-01", modified: "2017-04-11", version: 5, modifiedBy: "GuiLLm", type: "instru"},
 {name: "L'entraide", id: "qua", created: "2017-07-29", modified: "2017-10-09", version: 14, modifiedBy: "Rasok", type: "rap", emcees: ["Rasok","Maud","GuiLLm","Fallon","Julian","Sonny Do"]},
-{name: "Confiture", id: "jam", created: "2015-10-19", modified: "2015-10-19", version: 1, modifiedBy: "GuiLLm", type: "instru"},
 {name: "Spaz", id: "spaz", created: "2017-05-19", modified: "2017-08-02", version: 8, modifiedBy: "Rasok", type: "rap", emcees: ["Rasok","Deden","GuiLLm"]},
+{name: "Confiture", id: "jam", created: "2015-10-19", modified: "2015-10-19", version: 1, modifiedBy: "GuiLLm", type: "instru"},
 {name: "Sakoto", id: "sakoto", created: "2015-01-01", modified: "2015-01-01", version: 1, modifiedBy: "Rasok", type: "instru"},
 {name: "Temps Durs", id: "temps_durs", created: "2015-09-28", modified: "2016-09-28", version: 4, modifiedBy: "Rasok", type: "instru"},
 ]
@@ -45,6 +45,8 @@ var width = 420
 var barHeight = 40;
 var cornerRadius = 12;
 var barColor = "hsla(22, 100%, 59%, 0.8)";
+var barNameColor = "white";
+var barVersionColor = "rgba(255, 241, 216, 0.35)"
 // utility function that maps [0 to 100] to [0, width]
 // draw this on the board as a map of two lines
 var scaleFunction = d3.scale.linear().domain([0, 100]).range([0, width]);
@@ -71,6 +73,8 @@ function updateBarChart() {
   // mitPressureSurvey ...
   var enterG = binding.enter()
                       .append("g")
+  
+     .on("click", function(d) { window.open("/db/" + d.id + ".html"); }); // when clicked, opens link
   // ... then append a 'rect' (rectangle) inside of each 'g', with a
   // width proportional to happierThanAvg, to represent each bar.
   enterG
@@ -78,11 +82,10 @@ function updateBarChart() {
      .attr("rx", cornerRadius)
      .attr("ry", cornerRadius)
      .attr("width", function(d) {
-       return d.name.length * 10 + scaleFunction(d.version) * 5;
+       return 180 + scaleFunction(d.version) * 4;
      })
      .attr("height", barHeight - 10)
      .attr("fill", barColor)
-     .on("click", function() { window.open("http://google.com"); }); // when clicked, opens window with google.com.;
   // ... then append a 'text' node inside of each 'g' (after 'rect')
   // with the dorm name as the label.
   enterG
@@ -90,9 +93,19 @@ function updateBarChart() {
      .attr("x", 12)
      .attr("letter-spacing", "1.5")
      .attr("y", barHeight / 2 + 1)
-     .attr("stroke", "white")
-     .attr("fill", "white")
+     .attr("stroke", barNameColor)
+     .attr("fill", barNameColor)
      .text(function(d) {return d.name;});
+ // on ajoute la version à droite.
+  enterG
+    .append("text")
+    .attr("stroke", barVersionColor)
+    .attr("fill", barVersionColor)
+    .attr("y", barHeight / 2 + 1)
+    .attr("x", function(d) {
+       return 180 + scaleFunction(d.version) * 4 - 45 - (d.version-d.version%10)*.7;
+     })
+    .text(function(d) {return "v0.0." + d.version;});
   
   // OK here's the really subtle part: If we call methods directly on
   // the binding variable (without first calling .enter()), it specifies
