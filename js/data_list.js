@@ -45,13 +45,15 @@ var i = 0;
 var width = 420
 var barHeight = 40;
 var cornerRadius = 12;
-var barColor = "hsla(22, 100%, 59%, 0.8)";
+var barColor = "#ff7b2e";
 var barNameColor = "white";
 var barVersionColor = "rgba(255, 241, 216, 0.35)"
 // utility function that maps [0 to 100] to [0, width]
 // draw this on the board as a map of two lines
 var scaleFunction = d3.scale.linear().domain([0, 100]).range([0, width]);
 // the main function that uses d3 to both create and update the bar chart
+
+
 function updateBarChart() {
   var chart = d3.select("#d3chart"); // select the chart itself
   // This line binds our data to a set of DOM elements, specifically:
@@ -72,13 +74,14 @@ function updateBarChart() {
   // enter() specifies what happens when you create the bar chart FOR
   // THE FIRST TIME. first append a SVG 'g' element for each element in
   // mitPressureSurvey ...
-  var enterG = binding.enter()
-                      .append("g")
-  
-     .on("click", function(d) { window.open("/db/" + d.id + ".html"); }); // when clicked, opens link
+  var enterG = binding
+      .enter()
+      .append("g")
+      .on("click", function(d) { window.open("/db/" + d.id + ".html"); }); // when clicked, opens link
   // ... then append a 'rect' (rectangle) inside of each 'g', with a
   // width proportional to happierThanAvg, to represent each bar.
   enterG
+  
      .append("rect")
      .attr("rx", cornerRadius)
      .attr("ry", cornerRadius)
@@ -87,6 +90,9 @@ function updateBarChart() {
      })
      .attr("height", barHeight - 10)
      .attr("fill", barColor)
+     .attr("opacity", "0.9")
+     .on("mouseover", handleMouseOver)
+     .on("mouseout", handleMouseOut);
   // ... then append a 'text' node inside of each 'g' (after 'rect')
   // with the dorm name as the label.
   enterG
@@ -150,12 +156,20 @@ function sortAndUpdate(i) {
   // update the EXISTING bar chart with the newly-sorted mitPressureSurvey
   updateBarChart();
 }
-/*function handleMouseOver() {  // Add interactivity
+
+ // Create Event Handlers for mouse
+      function handleMouseOver(d, i) {  // Add interactivity
 
             // Use D3 to select element, change color and size
-            d3.select(this).attr(fill: "blue");
-          }*/
-// run this code after your page loads
+            d3.select(this).style("fill", "orange");
+          }
+
+      function handleMouseOut(d, i) {
+            // Use D3 to select element, change color back to normal
+            d3.select(this).transition().style("fill", barColor);
+          }
+
+
 $(function() {
   // set the initial dimensions for the SVG container
   // (very important or else the entire chart won't display)
