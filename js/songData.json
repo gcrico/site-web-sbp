@@ -1,4 +1,5 @@
 [
+{name: "Did you Know", id: "did_you_know", created: "2017-07-21", modified: "2017-04-21", version: 3, modifiedBy: "GuiLLm", type: "rap"},
 {name: "Cadavre Exquis", id: "cadavre", created: "2017-04-01", modified: "2017-04-11", version: 3, modifiedBy: "GuiLLm", type: "instru"},
 {name: "L'entraide", id: "qua", created: "2017-07-29", modified: "2017-10-09", version: 14, modifiedBy: "Rasok", type: "rap", emcees: ["Rasok","Maud","GuiLLm","Fallon","Julian","Sonny Do"]},
 {name: "Confiture", id: "jam", created: "2015-10-19", modified: "2015-10-19", version: 1, modifiedBy: "GuiLLm", type: "instru"},
