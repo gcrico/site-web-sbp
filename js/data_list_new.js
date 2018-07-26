@@ -26,13 +26,16 @@ var chart = d3.select("#d3chart");
 var binding = chart.selectAll("g").data(songData);
 
 var enterG = binding.enter()
-                    .append("g");
+                    .append("g")
+                    .on("click", function(d) {
+                        window.open("/db/" + d.id + ".html"); 
+                    });
   
   enterG.append("rect")
         .attr("rx", cornerRadius)
         .attr("ry", cornerRadius)
         .attr("width", function(d) {
-            return 180 + d.version * 4;
+            return 180 + window.innerWidth * ( d.version * 4) / 200;
         })
         .attr("height", barHeight - 10)
         .attr("fill", barColor)
@@ -45,7 +48,7 @@ var enterG = binding.enter()
         .attr("stroke", barNameColor)
         .attr("fill", barNameColor)
         .text(function(d) {return d.name;})
-        .text(window.innerWidth);
+        //.text(window.innerWidth);
  // on ajoute la version à droite.
   enterG
     .append("text")
@@ -53,7 +56,7 @@ var enterG = binding.enter()
     .attr("fill", barVersionColor)
     .attr("y", barHeight / 2 + 1)
     .attr("x", function(d) {
-       return 180 + d.version * 4 - 45 - (d.version-d.version%10)*.7;
+       return 180 + window.innerWidth * ( d.version * 4) / 200 - (d.version-d.version%10)*.7 - 45;
      })
     .text(function(d) {return "v0.0." + d.version;});
     
@@ -63,12 +66,15 @@ var enterG = binding.enter()
            return "translate(0," + n * barHeight + ")";
          });
     
- binding.on("click", function(d) { window.open("/db/" + d.id + ".html"); })
-        .on("mouseover", function(){d3.select(this).style("fill", "orange");})
-        .on("mouseout", handleMouseOver);
+ binding.on("mouseover", function(){
+            d3.select(this).select("rect").style("fill", "orange")
+        })
+        .on("mouseout", function(){
+            d3.select(this).select("rect").transition().style("fill", barColor)
+        });
 }
-// sort mitPressureSurvey by happierThanAvg and update the chart
-function sortAndUpdate(btn) {
+
+function sortAndUpdate(i) {
   songData.sort(function(a, b) {
     if (i == 1) {
       return d3.ascending(a.name, b.name);
@@ -80,32 +86,16 @@ function sortAndUpdate(btn) {
       return d3.descending(a.version, b.version);
     }
   });
-  // update the EXISTING bar chart with the newly-sorted mitPressureSurvey
+  // update the EXISTING bar chart with the newly-sorted data
   updateBarChart();
 }
     
-
- // Create Event Handlers for mouse
-      function handleMouseOver(d, i) {  // Add interactivity
-
-            // Use D3 to select element, change color and size
-            d3.select(this).style("fill", "orange");
-          }
-
-      function handleMouseOut(d, i) {
-            // Use D3 to select element, change color back to normal
-            d3.select(this).transition().style("fill", barColor);
-          }
-
-  d3.select("#d3chart")
+d3.select("#d3chart")
     .attr("width", width)
     .attr("height", barHeight * songData.length);
-  updateBarChart();
-    
-object("#sortNameButton").addEventListener("click", function() {sortAndUpdate(1);});
-	
-});
 
+updateBarChart();
+    
 $(function() {
   // set the initial dimensions for the SVG container
   // (very important or else the entire chart won't display)
@@ -113,7 +103,10 @@ $(function() {
   // create the bar chart for the first time
 
   // set button click handlers
-  $("#sortNameButton").click(function() {sortAndUpdate(1);});
-  $("#sortDateButton").click(function() {sortAndUpdate(2);});
-  $("#sortVersionButton").click(function() {sortAndUpdate(3);});
+  $("#sortNameButton").click(function() {sortAndUpdate(1);console.log("button 1");});
+  $("#sortDateButton").click(function() {sortAndUpdate(2);console.log("button 2");});
+  $("#sortVersionButton").click(function() {sortAndUpdate(3);console.log("button 3");});
+ 
+});	
 });
+
