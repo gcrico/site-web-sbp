@@ -23,7 +23,14 @@ function updateBarChart() {
     
 var chart = d3.select("#d3chart");
 
-var binding = chart.selectAll("g").data(songData);
+var binding = chart.selectAll("g").data(songData, function(d) {
+                       // This function, passed as the second argument
+                       // to data(), specifies that the dorm name should
+                       // be used as the identifying key for each
+                       // element in mitPressureSurvey. Without this
+                       // function, the sorting won't work properly.
+                       return d.name;
+                     });
 
 var enterG = binding.enter()
                     .append("g")
@@ -77,6 +84,7 @@ var enterG = binding.enter()
 function sortAndUpdate(i) {
   songData.sort(function(a, b) {
     if (i == 1) {
+        
       return d3.ascending(a.name, b.name);
     }
     else if (i == 2) {
@@ -87,6 +95,7 @@ function sortAndUpdate(i) {
     }
   });
   // update the EXISTING bar chart with the newly-sorted data
+    
   updateBarChart();
 }
     
