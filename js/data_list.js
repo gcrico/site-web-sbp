@@ -1,146 +1,69 @@
-// Data source:
-// http://tech.mit.edu/V132/N59/pressure/breakdown/residence/index.htm
-//
-// These attributes represent the percentage of YES answers for each dorm
-// - happierThanAvg: "I am happier than the average MIT student."
-// - extroverted: "Are you extroverted?"
-// - workLifeBalance: "I strike a good balance between my personal life and work."
-var mitPressureSurvey = [
-{dorm: 'Baker House', happierThanAvg: 49, extroverted: 44, workLifeBalance: 54},
-{dorm: 'Bexley Hall', happierThanAvg: 36, extroverted: 41, workLifeBalance: 38},
-{dorm: 'Burton Connor', happierThanAvg: 50, extroverted: 39, workLifeBalance: 43},
-{dorm: 'East Campus', happierThanAvg: 46, extroverted: 31, workLifeBalance: 46},
-{dorm: 'MacGregor House', happierThanAvg: 42, extroverted: 25, workLifeBalance: 49},
-{dorm: 'Maseeh Hall', happierThanAvg: 45, extroverted: 38, workLifeBalance: 43},
-{dorm: 'McCormick Hall', happierThanAvg: 46, extroverted: 32, workLifeBalance: 47},
-{dorm: 'New House', happierThanAvg: 41, extroverted: 24, workLifeBalance: 48},
-{dorm: 'Next House', happierThanAvg: 35, extroverted: 18, workLifeBalance: 45},
-{dorm: 'Random Hall', happierThanAvg: 47, extroverted: 29, workLifeBalance: 37},
-{dorm: 'Senior House', happierThanAvg: 38, extroverted: 29, workLifeBalance: 38},
-{dorm: 'Simmons Hall', happierThanAvg: 41, extroverted: 22, workLifeBalance: 49},
-{dorm: 'Fraternities', happierThanAvg: 54, extroverted: 40, workLifeBalance: 54},
-{dorm: 'Sororities', happierThanAvg: 56, extroverted: 52, workLifeBalance: 45},
-{dorm: 'ILGs', happierThanAvg: 63, extroverted: 22, workLifeBalance: 33},
-{dorm: 'Off Campus', happierThanAvg: 46, extroverted: 37, workLifeBalance: 41},
-{dorm: 'Ashdown House', happierThanAvg: 37, extroverted: 25, workLifeBalance: 34},
-{dorm: 'Edgerton House', happierThanAvg: 40, extroverted: 21, workLifeBalance: 47},
-{dorm: 'Sidney-Pacific', happierThanAvg: 42, extroverted: 31, workLifeBalance: 33},
-{dorm: 'Tang Hall', happierThanAvg: 34, extroverted: 26, workLifeBalance: 33},
-{dorm: 'The Warehouse', happierThanAvg: 50, extroverted: 47, workLifeBalance: 41},
-{dorm: 'Eastgate', happierThanAvg: 56, extroverted: 30, workLifeBalance: 51},
-{dorm: 'Westgate', happierThanAvg: 43, extroverted: 30, workLifeBalance: 43}
-]
+//see https://bost.ocks.org/mike/join/
+//and http://bl.ocks.org/mbostock/3808218
 
-var songData = [
-{name: "Did you Know", id: "did_you_know", created: "2018-07-21", modified: "2018-07-21", version: 3, modifiedBy: "GuiLLm", type: "rap"},
-{name: "Cadavre Exquis", id: "cadavre", created: "2017-04-01", modified: "2017-04-11", version: 3, modifiedBy: "GuiLLm", type: "instru"},
-{name: "L'entraide", id: "qua", created: "2017-07-29", modified: "2017-10-09", version: 14, modifiedBy: "Rasok", type: "rap", emcees: ["Rasok","Maud","GuiLLm","Fallon","Julian","Sonny Do"]},
-{name: "Confiture", id: "jam", created: "2015-10-19", modified: "2015-10-19", version: 1, modifiedBy: "GuiLLm", type: "instru"},
-{name: "Spaz", id: "spaz", created: "2017-05-19", modified: "2017-08-02", version: 8, modifiedBy: "Rasok", type: "rap", emcees: ["Rasok","Deden","GuiLLm"]},
-{name: "Sakoto", id: "sakoto", created: "2015-01-01", modified: "2015-01-01", version: 1, modifiedBy: "Rasok", type: "instru"},
-{name: "Temps Durs", id: "temps_durs", created: "2015-09-28", modified: "2016-09-28", version: 4, modifiedBy: "Rasok", type: "instru"},
-]
+d3.json("../js/songData.json", function(data){
 
 var i = 0;
-var width = 420
 var barHeight = 40;
+var width = 420;
 var cornerRadius = 12;
 var barColor = "#ff7b2e";
 var barNameColor = "white";
-var barVersionColor = "rgba(255, 241, 216, 0.35)"
-// utility function that maps [0 to 100] to [0, width]
-// draw this on the board as a map of two lines
-var scaleFunction = d3.scale.linear().domain([0, 100]).range([0, width]);
-// the main function that uses d3 to both create and update the bar chart
+var barVersionColor = "rgba(255, 241, 216, 0.35)";
 
-
-function updateBarChart() {
-  var chart = d3.select("#d3chart"); // select the chart itself
-  // This line binds our data to a set of DOM elements, specifically:
-  //
-  //   mitPressureSurvey <--> '#d3chart g'
-  //
-  // Each element in the mitPressureSurvey list corresponds to a SVG 'g'
-  // element inside of #d3chart.
+function updateBarChart(){
+  var chart = d3.select("#d3chart"); 
+    
   var binding = chart.selectAll("g")
                      .data(songData, function(d) {
-                       // This function, passed as the second argument
-                       // to data(), specifies that the dorm name should
-                       // be used as the identifying key for each
-                       // element in mitPressureSurvey. Without this
-                       // function, the sorting won't work properly.
-                       return d.name;
+                     	return d.name;
                      });
-  // enter() specifies what happens when you create the bar chart FOR
-  // THE FIRST TIME. first append a SVG 'g' element for each element in
-  // mitPressureSurvey ...
-  var enterG = binding
-      .enter()
-      .append("g")
-      .on("click", function(d) { window.open("/db/" + d.id + ".html"); }); // when clicked, opens link
-  // ... then append a 'rect' (rectangle) inside of each 'g', with a
-  // width proportional to happierThanAvg, to represent each bar.
-  enterG
-  
-     .append("rect")
-     .attr("rx", cornerRadius)
-     .attr("ry", cornerRadius)
-     .attr("width", function(d) {
-       return 180 + scaleFunction(d.version) * 4;
-     })
-     .attr("height", barHeight - 10)
-     .attr("fill", barColor)
-     .attr("opacity", "0.9")
-     .on("mouseover", handleMouseOver)
-     .on("mouseout", handleMouseOut);
-  // ... then append a 'text' node inside of each 'g' (after 'rect')
-  // with the dorm name as the label.
-  enterG
-     .append("text")
-     .attr("x", 12)
-     .attr("letter-spacing", "1.5")
-     .attr("y", barHeight / 2 + 1)
-     .attr("stroke", barNameColor)
-     .attr("fill", barNameColor)
-     .text(function(d) {return d.name;});
- // on ajoute la version à droite.
-  enterG
-    .append("text")
-    .attr("stroke", barVersionColor)
-    .attr("fill", barVersionColor)
-    .attr("y", barHeight / 2 + 1)
-    .attr("x", function(d) {
-       return 180 + scaleFunction(d.version) * 4 - 45 - (d.version-d.version%10)*.7;
-     })
-    .text(function(d) {return "v0.0." + d.version;});
-  
-  // OK here's the really subtle part: If we call methods directly on
-  // the binding variable (without first calling .enter()), it specifies
-  // what happens EVERY TIME this updateBarChart() runs, not just the
-  // first time. Remember, all the code above in the enter() section ran
-  // only once when the chart was first created. The code below runs
-  // every time you call updateBarChart().
-  //
-  // So what does this code do? It first initiates a smooth transition
-  // with a duration of 1500ms (1.5 seconds). This transition sets the
-  // "transform" attribute of each 'g' element to the appropriate
-  // coordinates, based on the index (i) of the corresponding element in
-  // mitPressureSurvey.
-  //
-  // Thus, when you sort the list, the index (i) of each element
-  // corresponds to its sort order, and d3 knows to move it into the
-  // proper coordinates.
-  //
-  // In d3 terminology, this is called an 'update' selection. See:
-  // - http://bost.ocks.org/mike/join/
-  // - http://bl.ocks.org/mbostock/3808218
+    
+  var enterG = binding.enter()
+                      .append("g")
+                      .on("click", function(d){ window.open("../db/" + d.id + ".html"); });
+    
+  enterG.append("rect")
+	  	.attr("rx", cornerRadius)
+		.attr("ry", cornerRadius)
+		.attr("width", 100)
+		.attr("height", barHeight - 10)
+		.attr("fill", barColor)
+		.attr("opacity", "0.9")
+		.on("mouseover", handleMouseOver)
+		.on("mouseout", handleMouseOut);
+    
+  enterG.append("text")
+		.attr("x", 12)
+		.attr("letter-spacing", "1.5")
+		.attr("y", barHeight / 2 + 1)
+		.attr("stroke", barNameColor)
+		.attr("fill", barNameColor)
+		.text(function(d) {return d.name;})
+	  	.text(window.innerWidth);
+ 
+  enterG.append("text")
+        .attr("stroke", barVersionColor)
+        .attr("fill", barVersionColor)
+        .attr("y", barHeight / 2 + 1)
+        .attr("x", 100)
+        .text(function(d) {return "v0.0." + d.version;});
+
   binding.transition()
          .duration(1000)
          .attr("transform", function(d, n) {
-           return "translate(0," + n * barHeight + ")";
+            return "translate(0," + n * barHeight + ")";
          });
-}
-// sort mitPressureSurvey by happierThanAvg and update the chart
+    
+  binding.select("rect").enter()
+        .attr("width", function(d) {
+            return (180 + d.version * 4) * sqrt(window.innerWidth) / 100;
+        });
+    
+  binding.select("text")
+         .text(window.innerWidth);
+};
+	
 function sortAndUpdate(i) {
   songData.sort(function(a, b) {
     if (i == 1) {
@@ -153,21 +76,26 @@ function sortAndUpdate(i) {
       return d3.descending(a.version, b.version);
     }
   });
-  // update the EXISTING bar chart with the newly-sorted mitPressureSurvey
+  // update the EXISTING bar chart with the newly-sorted data
   updateBarChart();
-}
+};
 
+    window.addEventListener("resize", function(){updateBarChart();});
+
+    
  // Create Event Handlers for mouse
       function handleMouseOver(d, i) {  // Add interactivity
 
             // Use D3 to select element, change color and size
             d3.select(this).style("fill", "orange");
-          }
+          };
 
       function handleMouseOut(d, i) {
             // Use D3 to select element, change color back to normal
             d3.select(this).transition().style("fill", barColor);
-          }
+          };
+    
+
 
 
 $(function() {
@@ -183,3 +111,112 @@ $(function() {
   $("#sortDateButton").click(function() {sortAndUpdate(2);});
   $("#sortVersionButton").click(function() {sortAndUpdate(3);});
 });
+    
+    });
+
+// Set the dimensions of the canvas / graph
+/*var margin = {top: 30, right: 20, bottom: 30, left: 50},
+    width = 360 - margin.left - margin.right,
+    height = 270 - margin.top - margin.bottom,
+	i = 0,
+	barHeight = 40,
+	cornerRadius = 12,
+	barColor = "#ff7b2e",
+	barNameColor = "white",
+	barVersionColor = "rgba(255, 241, 216, 0.35)";
+
+
+// Parse the date / time
+var parseDate = d3.time.format("%y-%m-%d").parse;
+
+// Set the ranges
+var x = d3.time.scale().range([0, width]);
+var y = d3.scale.linear().range([height, 0]);
+
+// Define the axes
+var xAxis = d3.svg.axis().scale(x)
+    .orient("bottom").ticks(5);
+
+var yAxis = d3.svg.axis().scale(y)
+    .orient("left").ticks(5);
+
+// Define the line
+var valueline = d3.svg.line()
+    .x(0)
+    .y(20);
+ 
+
+var chart = d3.select('.dataDiv'); 
+    
+  // Adds the svg canvas
+var svg = d3.select(".dataDiv")
+    .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+        .attr("transform", 
+              "translate(" + margin.left + "," + margin.top + ")");
+
+// Get the data
+d3.json("js/songData.json", function(d) {
+
+/*
+    // Scale the range of the data
+    x.domain(d3.extent(data, function(d) { return d.date; }));
+    y.domain([0, d3.max(data, function(d) { return d.close; })]);
+*/
+
+/*    // Add the valueline path.
+    svg.append("path")
+        .attr("class", "line")
+        .attr("d", valueline(data));*/
+
+    // Add the X Axis
+    svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
+
+    // Add the Y Axis
+    svg.append("g")
+        .attr("class", "y axis")
+        .call(yAxis);
+	
+
+	
+  var chart = d3.select(".dataDiv"); 
+    
+  var binding = chart.selectAll("g")
+                     .data(songData, function(d) {
+                     	return d.name;
+                     });
+  var enterG = binding.enter()
+                      .on("click", function(d){ window.open("../db/" + d.id + ".html"); });
+
+  svg.append("rect")
+	  	.attr("rx", cornerRadius)
+		.attr("ry", cornerRadius)
+		.attr("width", 100)
+		.attr("height", barHeight - 10)
+		.attr("fill", barColor)
+		.attr("opacity", "0.9")
+		.on("mouseover", handleMouseOver)
+		.on("mouseout", handleMouseOut);
+	
+  enterG.append("text")
+		.attr("x", 12)
+		.attr("letter-spacing", "1.5")
+		.attr("y", barHeight / 2 + 1)
+		.attr("stroke", barNameColor)
+		.attr("fill", barNameColor)
+		.text(function(d) {return d.name;})
+	  	.text(window.innerWidth);
+ 
+  enterG.append("text")
+        .attr("stroke", barVersionColor)
+        .attr("fill", barVersionColor)
+        .attr("y", barHeight / 2 + 1)
+        .attr("x", 100)
+        .text(function(d) {return "v0.0." + d.version;});
+
+});*/

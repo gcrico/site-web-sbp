@@ -22,6 +22,48 @@ li{list-style:none}
    My CSS
    ========================================================================== */
 
+/* ---- for mobile ---- */
+
+@media only screen and (max-width: 750px) {
+    .mobileH1 {
+        font-size: 8vw;
+    }
+    
+    .about h1 {	
+        font-size:5vw;
+    }
+	
+	.espaces {
+		letter-spacing: 20px;
+	}
+    
+	.songTags {
+		font-size: 16px;
+	}
+		
+	.imgTags {
+		width:42px;
+	}	
+
+}
+
+
+/* ---- for desktop ---- */
+
+@media only screen and (min-width: 751px) {
+    .mobileH1 {
+        font-size: 6vw;
+    }
+    
+    .about h1 {
+        font-size: 2vw;
+    }
+	
+	.imgTags {
+		width:64px;
+	}	
+}
+
 /* ---- base ---- */
 
 html,body{
@@ -164,7 +206,6 @@ h2, h3, h4, h5 {
     font-weight: 500;
     text-transform: uppercase;
     text-align: center;
-	font-size:2em;
     padding:0px;
 	line-height: 1.2em;
     text-shadow: 1px 1px rgba(199, 229, 255, 0.68);
@@ -173,7 +214,14 @@ h2, h3, h4, h5 {
 .about p {
     width: 80%;
     line-height: 1.2em;
-    margin-left: 10%
+    margin-left: 10%;
+    margin-bottom:40px;
+}
+
+.about img {
+    margin-top: 30px;
+    width: 80%;
+    max-width: 240px;
 }
 
 /* ---- particles.js container ---- */
@@ -209,41 +257,15 @@ h2, h3, h4, h5 {
 
 .info {
     margin-top: 100px;
-    height: 520px;
 }
 
 .fleche {
     transform: translate(0, 6px);
 }
 
-.links line {
-  stroke: #999;
-  stroke-opacity: 0.6;
+.btn .fleche{
+    transform: translate(0, 4px);
 }
-
-.nodes circle {
-  stroke: #fff;
-  stroke-width: 1.5px;
-}
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-
-.dot {
-  stroke: #000;
-}
-
-.tooltip {
-  position: absolute;
-  width: 200px;
-  height: 28px;
-  pointer-events: none;
-}
-
 
 .mediaPlayer {
     margin: 75px auto;
@@ -251,8 +273,14 @@ h2, h3, h4, h5 {
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
+.boutons .btn {
+	top:10px;
+}
+
 
 
 .listeInfo ul li {
     margin-bottom:20px;
 }
+
+
