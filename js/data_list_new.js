@@ -1,4 +1,4 @@
-d3.json("../js/songData.json", function(songData) {
+d3.json("/js/songData.json", function(songData) {
 console.log(songData);
 	
 var i = 0,
