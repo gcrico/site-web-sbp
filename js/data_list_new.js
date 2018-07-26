@@ -1,5 +1,6 @@
-d3.json("/js/songData.json", function(songData) {
+d3.json("/js/songData.json", function(err, songData) {
 console.log(songData);
+if(err) console.log("error fetching data");
 	
 var i = 0,
 	margin = {top: 0, right: 0, bottom: 0, left: 0},
