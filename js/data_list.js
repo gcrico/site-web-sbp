@@ -5,7 +5,7 @@ d3.json("../js/songData.json", function(data){
 
 var i = 0;
 var barHeight = 40;
-var width = 420;
+var width = window.innerWidth - 200;
 var cornerRadius = 12;
 var barColor = "#ff7b2e";
 var barNameColor = "white";
