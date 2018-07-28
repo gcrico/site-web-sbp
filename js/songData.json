@@ -5,5 +5,6 @@
 {"name": "Confiture", "id": "jam", "created": "2015-10-19", "modified": "2015-10-19", "version": 1, "modifiedBy": "GuiLLm", "type": "instru"},
 {"name": "Spaz", "id": "spaz", "created": "2017-05-19", "modified": "2017-08-02", "version": 8, "modifiedBy": "Rasok", "type": "rap", "emcees": ["Rasok","Deden","GuiLLm"]},
 {"name": "Sakoto", "id": "sakoto", "created": "2015-01-01", "modified": "2015-01-01", "version": 1, "modifiedBy": "Rasok", "type": "instru"},
-{"name": "Temps Durs", "id": "temps_durs", "created": "2015-09-28", "modified": "2016-09-28", "version": 4, "modifiedBy": "Rasok", "type": "instru"}
+{"name": "Temps Durs", "id": "temps_durs", "created": "2015-09-28", "modified": "2016-09-28", "version": 4, "modifiedBy": "Rasok", "type": "instru"},
+{"name": "La Révolte", "id": "coxol", "created": "2018-07-15", "modified": "2018-07-28", "version": 8, "modifiedBy": "Rasok", "type": "rap"}
 ]
