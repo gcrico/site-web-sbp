@@ -36,7 +36,7 @@ var binding = chart.selectAll("g").data(songData, function(d) {
 var enterG = binding.enter()
                     .append("g")
                     .on("click", function(d) {
-                        window.open("/db/" + d.id + ".html"); 
+                        window.open("/db/" + d.id + ".html", "_self"); 
                     });
   
   enterG.append("rect")
@@ -67,7 +67,20 @@ var enterG = binding.enter()
        return 180 + window.innerWidth * ( d.version * 4) / 200 - (d.version-d.version%10)*.7 - 45;
      })
     .text(function(d) {return "v0.0." + d.version;});
-    
+
+ /* if (window.innerWidth > 600) {
+      enterG.append("rect")
+        .attr("rx", cornerRadius)
+        .attr("ry", cornerRadius)
+        .attr("x", function(d){
+              return window.innerWidth -400;
+              })
+        .attr("width", "80")
+        .attr("height", barHeight - 10)
+        .attr("fill", barColor)
+        .attr("opacity", "0.9");
+  }
+    */
   binding.transition()
          .duration(1000)
          .attr("transform", function(d, n) {
@@ -84,11 +97,11 @@ var enterG = binding.enter()
 
 function sortAndUpdate(i) {
   songData.sort(function(a, b) {
-    if (i == 1) {
+    if (i == 0) {
         
       return d3.ascending(a.name, b.name);
     }
-    else if (i == 2) {
+    else if (i == 1) {
       return d3.descending(a.created, b.created);
     }
     else  {
@@ -104,7 +117,7 @@ d3.select("#d3chart")
     .attr("width", width)
     .attr("height", barHeight * songData.length);
 
-sortAndUpdate(0);
+sortAndUpdate(1);
     
 $(function() {
   // set the initial dimensions for the SVG container
@@ -113,9 +126,9 @@ $(function() {
   // create the bar chart for the first time
 
   // set button click handlers
-  $("#sortNameButton").click(function() {sortAndUpdate(1);console.log("button 1");});
-  $("#sortDateButton").click(function() {sortAndUpdate(2);console.log("button 2");});
-  $("#sortVersionButton").click(function() {sortAndUpdate(3);console.log("button 3");});
+  $("#sortNameButton").click(function() {sortAndUpdate(0);console.log("button 1");});
+  $("#sortDateButton").click(function() {sortAndUpdate(1);console.log("button 2");});
+  $("#sortVersionButton").click(function() {sortAndUpdate(2);console.log("button 3");});
  
 });	
 });
