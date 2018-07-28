@@ -104,7 +104,7 @@ d3.select("#d3chart")
     .attr("width", width)
     .attr("height", barHeight * songData.length);
 
-updateBarChart();
+sortAndUpdate(0);
     
 $(function() {
   // set the initial dimensions for the SVG container
