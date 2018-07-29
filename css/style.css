@@ -44,6 +44,14 @@ li{list-style:none}
 	.imgTags {
 		width:42px;
 	}	
+    
+    .audioTitle {
+        font-size: 24px;
+        margin-top: 20px;
+        margin-bottom: -30px;
+        
+    }
+
 
 }
 
@@ -62,6 +70,13 @@ li{list-style:none}
 	.imgTags {
 		width:64px;
 	}	
+    
+    .audioTitle {
+        font-size: 40px;
+        margin-top: 0px;
+        margin-bottom: -200px;
+        
+    }
 }
 
 /* ---- base ---- */
@@ -287,4 +302,15 @@ h2, h3, h4, h5 {
 
 .imgInactive {
     opacity: 0.3;
+}
+
+.audioTitle {
+    text-align: left;
+    margin-left: 10%;
+        
+}
+
+.audioContainer {
+    margin-top: -20px;
+    margin-bottom: -20px;
 }

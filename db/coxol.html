@@ -23,7 +23,7 @@
     <link rel="stylesheet" media="screen" href="../css/style.css"> </head>
 
 <body class="dataBody" style="background-color: #03acad;color:white;height:100%">
-        <nav>
+    <nav>
         <div class="nav-wrapper teal lighten-2">
             <div class="container nav-content row"> <a href="../index.html" class="left brand-logo" style="font-family:knewave; margin-top:-4px;"><i class="material-icons md-36" style="margin-right:8px;margin-top:0px;">home</i>SBP</a>
                 <ul id="nav-mobile" class="right col s7 m5 l3">
@@ -46,7 +46,7 @@
                 <li class="col s6">
                     <h2 class="left songTags">version:</h2> </li>
                 <li class="col s6">
-                    <h2 class="right songTags">0.0.8</h2> </li>
+                    <h2 class="right songTags">0.0.11</h2> </li>
                 <li class="col s6">
                     <h2 class="left songTags">created:</h2> </li>
                 <li class="col s6">
@@ -54,29 +54,44 @@
                 <li class="col s6">
                     <h2 class="left songTags">last modified:</h2> </li>
                 <li class="col s6">
-                    <h2 class="right songTags">July 28th 2017</h2> </li>
+                    <h2 class="right songTags">July 29th 2017</h2> </li>
                 <li class="col s6">
                     <h2 class="left songTags">by:</h2> </li>
                 <li class="col s6">
-                    <h2 class="right songTags">GuiLLm</h2> </li>
+                    <h2 class="right songTags">Rasok</h2> </li>
                 <li class="col s6">
                     <h2 class="left songTags" style="padding-top:15px;">type:</h2> </li>
                 <li class="col s6">
-                    <h2 class="right"><div class="beat"><img src="../svg/dj.svg" alt="beat" class="imgTags"><img style="margin-left:16px;" src="../svg/mic.svg" alt="mic" class="imgTags imgInactive"></div></h2> </li>
+                    <h2 class="right"><div class="beat"><img src="../svg/dj.svg" alt="beat" class="imgTags"><img style="margin-left:16px;" src="../svg/mic.svg" alt="mic" class="imgTags"></div></h2> </li>
             </ul>
         </div>
     </div>
-    <div class="container col s12 mediaPlayer">
-        <audio crossorigin playsinline>
-            <source src="../mp3/coxol-08-m.mp3" type="audio/mp3"> </audio>
+    <div class="row">
+        <div class="audioContainer container col s12 l6">
+            <h2 class="audioTitle col push-m1">beat:</h2>
+            <div class="mediaPlayer">
+                <audio id="playerBeat" controls>
+                    <source src="../mp3/coxol-08-m.mp3" type="audio/mp3"> </audio>
+            </div>
+        </div>
+        <div class="audioContainer container col s12 l6">
+            <h2 class="audioTitle col push-m1">rap:</h2>
+            <div class="mediaPlayer">
+                <audio id="playerRap" controls>
+                    <source src="../mp3/coxol-11-z.mp3" type="audio/mp3"> </audio>
+            </div>
+        </div>
     </div>
     <!-- Plyr resources and browser polyfills are specified in the pen settings -->
     <script>
         // Change "{}" to your options:
         // https://github.com/sampotts/plyr/#options
-        const player = new Plyr('audio', {});
+        const playerBeat = new Plyr('#playerBeat');
+        const playerRap = new Plyr('#playerRap', {
+     //       "settings": ['captions', 'quality', 'speed', 'loop']
+        });
         // Expose player so it can be used from the console
-        window.player = player;
+        window.player = players;
     </script>
 </body>
 
