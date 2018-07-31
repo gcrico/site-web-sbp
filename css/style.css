@@ -18,41 +18,33 @@ input,select{vertical-align:middle}
 li{list-style:none}
 
 
-/* =============================================================================
-   My CSS
-   ========================================================================== */
-
+/*=============================================================================My CSS==========================================================================*/
 /* ---- for mobile ---- */
 
 @media only screen and (max-width: 750px) {
     .mobileH1 {
         font-size: 8vw;
     }
-    
-    .about h1 {	
-        font-size:5vw;
+    .about h1 {
+        font-size: 5vw;
     }
-	
-	.espaces {
-		letter-spacing: 20px;
-	}
-    
-	.songTags {
-		font-size: 16px;
-	}
-		
-	.imgTags {
-		width:42px;
-	}	
-    
+    .espaces {
+        letter-spacing: 20px;
+    }
+    .songTags {
+        font-size: 16px;
+    }
+    .imgTags {
+        width: 42px;
+    }
     .audioTitle {
         font-size: 24px;
         margin-top: 20px;
         margin-bottom: -30px;
-        
     }
-
-
+    .download {
+        margin-top: 32px;
+    }
 }
 
 
@@ -62,154 +54,191 @@ li{list-style:none}
     .mobileH1 {
         font-size: 6vw;
     }
-    
     .about h1 {
         font-size: 2vw;
     }
-	
-	.imgTags {
-		width:64px;
-	}	
-    
+    .imgTags {
+        width: 64px;
+    }
     .audioTitle {
         font-size: 40px;
         margin-top: 0px;
         margin-bottom: -200px;
-        
+    }
+    .download {
+        margin-top: 12px;
     }
 }
 
+
 /* ---- base ---- */
 
-html,body{
-	width:100%;
-	height:100%;
-	background: #03acad;
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background: #03acad;
 }
 
-html{
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+html {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-body{
-  font:normal Roboto, Helvetica, sans-serif;
+body {
+    font: normal Roboto, Helvetica, sans-serif;
 }
 
-canvas{
-  display:block;
-  vertical-align:bottom;
+canvas {
+    display: block;
+    vertical-align: bottom;
 }
+
 
 /* Rules for sizing the icon. */
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-30 { font-size: 30px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
+
+.material-icons.md-18 {
+    font-size: 18px;
+}
+
+.material-icons.md-24 {
+    font-size: 24px;
+}
+
+.material-icons.md-30 {
+    font-size: 30px;
+}
+
+.material-icons.md-36 {
+    font-size: 36px;
+}
+
+.material-icons.md-48 {
+    font-size: 48px;
+}
+
 
 /* Rules for using icons as black on a light background. */
-.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
-.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+.material-icons.md-dark {
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.material-icons.md-dark.md-inactive {
+    color: rgba(0, 0, 0, 0.26);
+}
+
 
 /* Rules for using icons as white on a dark background. */
-.material-icons.md-light { color: rgba(255, 255, 255, 1); }
-.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
+.material-icons.md-light {
+    color: rgba(255, 255, 255, 1);
+}
+
+.material-icons.md-light.md-inactive {
+    color: rgba(255, 255, 255, 0.3);
+}
+
 
 /* custom colors */
-.material-icons.md-orange { color: rgb(255, 190, 109); }
-.material-icons.md-blue { color: rgb(109, 215, 255); }
 
+.material-icons.md-orange {
+    color: rgb(255, 190, 109);
+}
+
+.material-icons.md-blue {
+    color: rgb(109, 215, 255);
+}
 
 h1 {
-    font-family:'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 300;
-	letter-spacing: 3px;
-    font-size:60px;
-	line-height: 0.2em;
-    font-weight:500;
-	text-align:center;
-	margin-top:12px;
-	padding-left:24px;
-	color: rgba(255, 255, 255, 0.84);
+    letter-spacing: 3px;
+    font-size: 60px;
+    line-height: 0.2em;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 12px;
+    padding-left: 24px;
+    color: rgba(255, 255, 255, 0.84);
     text-shadow: 2px 2px rgba(199, 229, 255, 0.68);
 }
 
-h2, h3, h4, h5 {
+h2,
+h3,
+h4,
+h5 {
     font-family: Roboto;
     text-align: center;
     text-shadow: 1px 1px rgba(199, 229, 255, 0.38);
 }
 
-
 .panel h1 {
-    font-family:'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 300;
-	letter-spacing: 5px;
-	font-size:2em;
-	line-height: 0.2em;
-	text-align:left;
-	margin-top:12px;
-	padding-left:24px;
-	color: rgba(0, 68, 79, 0.5);
+    letter-spacing: 5px;
+    font-size: 2em;
+    line-height: 0.2em;
+    text-align: left;
+    margin-top: 12px;
+    padding-left: 24px;
+    color: rgba(0, 68, 79, 0.5);
     text-shadow: 2px 2px #ffffff;
 }
 
 .panel h1 a {
-	font-family:'knewave', sans-serif;
-	font-size: 1.3em;
-	margin: 0px;
-	color: teal;
-	filter:brightness(1.2);
+    font-family: 'knewave', sans-serif;
+    font-size: 1.3em;
+    margin: 0px;
+    color: teal;
+    filter: brightness(1.2);
     text-shadow: 3px 3px #ffffff;
 }
 
 .panel h2 {
-	font-weight:400;
-	font-size:1em;
-	margin-bottom:16px;
-	text-align:center;
-	line-height:1.3em;
+    font-weight: 400;
+    font-size: 1em;
+    margin-bottom: 16px;
+    text-align: center;
+    line-height: 1.3em;
 }
 
 .panel a {
-	margin: 18px;
-	margin-top: 0px;
-	}
+    margin: 18px;
+    margin-top: 0px;
+}
 
 .panel p {
-	font-family:'Roboto', sans-serif;
-	text-align: center;
-	line-height: 12px;
-	margin-bottom: 24px;
-	color: rgba(200, 50, 0, 0.4);
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    line-height: 12px;
+    margin-bottom: 24px;
+    color: rgba(200, 50, 0, 0.4);
     text-shadow: 2px 2px #ffffff;
 }
 
 .panel {
-  text-align: center;
-  position:absolute;
-  z-index:10;
-  width:300px;
-  height:260px;
-  background:#eee;
-  top:50%;
-  left:50%;
-  margin:-110px 0 0 -150px;
-  padding:20px;
-  border-radius:10px;
-  opacity: 0.85;
-  box-sizing:border-box;
-  z-index:100
-	&.hide{
-		display:none;
-	}
+    text-align: center;
+    position: absolute;
+    z-index: 10;
+    width: 300px;
+    height: 260px;
+    background: #eee;
+    top: 50%;
+    left: 50%;
+    margin: -110px 0 0 -150px;
+    padding: 20px;
+    border-radius: 10px;
+    opacity: 0.85;
+    box-sizing: border-box;
+    z-index:100 &.hide {
+        display: none;
+    }
 }
 
 .about {
-    
-	margin-top: -42px;
+    margin-top: -42px;
     padding: 20px;
-	background: #03acad;
+    background: #03acad;
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
@@ -217,12 +246,12 @@ h2, h3, h4, h5 {
 }
 
 .about h1 {
-    font-family:'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 500;
     text-transform: uppercase;
     text-align: center;
-    padding:0px;
-	line-height: 1.2em;
+    padding: 0px;
+    line-height: 1.2em;
     text-shadow: 1px 1px rgba(199, 229, 255, 0.68);
 }
 
@@ -230,7 +259,7 @@ h2, h3, h4, h5 {
     width: 80%;
     line-height: 1.2em;
     margin-left: 10%;
-    margin-bottom:40px;
+    margin-bottom: 40px;
 }
 
 .about img {
@@ -239,24 +268,25 @@ h2, h3, h4, h5 {
     max-width: 240px;
 }
 
+
 /* ---- particles.js container ---- */
 
-#particles-js{
-  width: 100%;
-  height: 100%;
-	/* filter: saturate(42%); */
-  background-size: cover;
-	background-color: white;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background:-webkit-linear-gradient(top,transparent,rgba(255, 127, 51, 0.8),#03acad);
-  background:linear-gradient(180deg,rgba(255, 127, 51, 0.8),#03acad);
+#particles-js {
+    width: 100%;
+    height: 100%;
+    /* filter: saturate(42%); */
+    background-size: cover;
+    background-color: white;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background: -webkit-linear-gradient(top, transparent, rgba(255, 127, 51, 0.8), #03acad);
+    background: linear-gradient(180deg, rgba(255, 127, 51, 0.8), #03acad);
 }
 
-.dataBody{
-  background:-webkit-linear-gradient(top,transparent,rgba(255, 127, 51, 0.8),#03acad);
-  background:linear-gradient(0deg,rgba(255, 127, 51, 0.8),#03acad);
-  min-height: 800px;
+.dataBody {
+    background: -webkit-linear-gradient(top, transparent, rgba(255, 127, 51, 0.8), #03acad);
+    background: linear-gradient(0deg, rgba(255, 127, 51, 0.8), #03acad);
+    min-height: 800px;
 }
 
 .nav-content {
@@ -264,10 +294,9 @@ h2, h3, h4, h5 {
 }
 
 .icons {
-    width:200px;
+    width: 200px;
     fill: white;
-    margin-top:50px;
-    
+    margin-top: 50px;
 }
 
 .info {
@@ -278,27 +307,23 @@ h2, h3, h4, h5 {
     transform: translate(0, 6px);
 }
 
-.btn .fleche{
+.btn .fleche {
     transform: translate(0, 4px);
     transform: translate(0, 4px);
 }
 
 .mediaPlayer {
     margin: 75px auto;
-	max-width: 600px;
+    max-width: 600px;
 }
 
 .boutons .btn {
-	top:10px;
+    top: 10px;
 }
-
-
 
 .listeInfo ul li {
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
-
-
 
 .imgInactive {
     opacity: 0.3;
@@ -307,7 +332,6 @@ h2, h3, h4, h5 {
 .audioTitle {
     text-align: left;
     margin-left: 10%;
-        
 }
 
 .audioContainer {
@@ -316,9 +340,9 @@ h2, h3, h4, h5 {
 }
 
 #playerRap {
-    width:100%
+    width: 100%
 }
 
-#playerBeat { 
-    width:100%
+#playerBeat {
+    width: 100%
 }
