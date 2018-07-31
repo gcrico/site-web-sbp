@@ -13,13 +13,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
-    <!-- Plyr JS dependencies -->
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,Array.prototype.includes,CustomEvent,Object.entries,Object.values,URL"></script>
-    <script src="https://unpkg.com/plyr@3/dist/plyr.min.js"></script>
     <!-- Compiled and minified Barba JS -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js" type="text/javascript"></script>-->
-    <!-- Plyr CSS -->
-    <link rel="stylesheet" href="../css/plyr.css">
     <link rel="stylesheet" media="screen" href="../css/style.css"> </head>
 
 <body class="dataBody" style="background-color: #03acad;color:white;height:100%">
@@ -68,31 +63,21 @@
     </div>
     <div class="row">
         <div class="audioContainer container col s12 l6">
-            <h2 class="audioTitle col push-m1">beat:</h2>
+            <h2 class="audioTitle col push-m1"><img src="../svg/mic.svg" alt="mic" class="imgTags" style="margin-bottom:-2px;height:30px">rap:</h2>
             <div class="mediaPlayer">
-                <audio id="playerBeat" controls>
-                    <source src="../mp3/coxol-08-m.mp3" type="audio/mp3"> </audio>
+                <audio id="playerRap" controls autoplay>
+                    <source src="../mp3/coxol-11-z.mp3" type="audio/mp3"> </audio>
+                    
             </div>
         </div>
         <div class="audioContainer container col s12 l6">
-            <h2 class="audioTitle col push-m1">rap:</h2>
+            <h2 class="audioTitle col push-m1"><img src="../svg/dj.svg" alt="dj" class="imgTags" style="margin-bottom:-2px;height:30px">beat:</h2>
             <div class="mediaPlayer">
-                <audio id="playerRap" controls>
-                    <source src="../mp3/coxol-11-z.mp3" type="audio/mp3"> </audio>
+                <audio id="playerBeat" controls loop>
+                    <source src="../mp3/coxol-08-m.mp3" type="audio/mp3"> </audio>
             </div>
         </div>
     </div>
-    <!-- Plyr resources and browser polyfills are specified in the pen settings -->
-    <script>
-        // Change "{}" to your options:
-        // https://github.com/sampotts/plyr/#options
-        const playerBeat = new Plyr('#playerBeat');
-        const playerRap = new Plyr('#playerRap', {
-     //       "settings": ['captions', 'quality', 'speed', 'loop']
-        });
-        // Expose player so it can be used from the console
-        window.player = players;
-    </script>
 </body>
 
 </html>

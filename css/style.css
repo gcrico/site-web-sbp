@@ -249,13 +249,13 @@ h2, h3, h4, h5 {
 	background-color: white;
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  background:-webkit-linear-gradient(top,transparent,rgb(255, 209, 203),#03acad);
-  background:linear-gradient(180deg,rgb(255, 209, 203),#03acad);
+  background:-webkit-linear-gradient(top,transparent,rgba(255, 127, 51, 0.8),#03acad);
+  background:linear-gradient(180deg,rgba(255, 127, 51, 0.8),#03acad);
 }
 
 .dataBody{
-  background:-webkit-linear-gradient(top,transparent,rgb(255, 209, 203),#03acad);
-  background:linear-gradient(0deg,rgb(255, 209, 203),#03acad);
+  background:-webkit-linear-gradient(top,transparent,rgba(255, 127, 51, 0.8),#03acad);
+  background:linear-gradient(0deg,rgba(255, 127, 51, 0.8),#03acad);
   min-height: 800px;
 }
 
@@ -280,12 +280,12 @@ h2, h3, h4, h5 {
 
 .btn .fleche{
     transform: translate(0, 4px);
+    transform: translate(0, 4px);
 }
 
 .mediaPlayer {
     margin: 75px auto;
-	max-width: 500px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	max-width: 600px;
 }
 
 .boutons .btn {
@@ -313,4 +313,12 @@ h2, h3, h4, h5 {
 .audioContainer {
     margin-top: -20px;
     margin-bottom: -20px;
+}
+
+#playerRap {
+    width:100%
+}
+
+#playerBeat { 
+    width:100%
 }
