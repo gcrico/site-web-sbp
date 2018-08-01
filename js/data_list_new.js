@@ -102,7 +102,7 @@ function sortAndUpdate(i) {
       return d3.ascending(a.name, b.name);
     }
     else if (i == 1) {
-      return d3.descending(a.created, b.created);
+      return d3.descending(a.modified, b.modified);
     }
     else  {
       return d3.descending(a.version, b.version);
