@@ -43,8 +43,24 @@ li{list-style:none}
         margin-bottom: -30px;
     }
     .download {
-        margin-top: 32px;
+        margin-top: 16px;
     }
+
+    .lyrics_modal {
+        font-size: 12px
+    }
+    
+    .lyrics_1 {
+        width:220px;
+    }
+
+    .video_1 {
+        margin-left:-20px;
+        width: 195px;
+        
+    }
+    
+    
 }
 
 
@@ -66,10 +82,21 @@ li{list-style:none}
         margin-bottom: -200px;
     }
     .download {
-        margin-top: 12px;
+        margin-top: 4px;
     }
-}
+    .lyrics_modal {
+        font-size: 18px
+    }
+    
+    .lyrics_1 {
+        width:330px;
+    }
 
+    .video_1 {
+        margin-left:-20px;
+    }
+    
+}
 
 /* ---- base ---- */
 
@@ -346,3 +373,4 @@ h5 {
 #playerBeat {
     width: 100%
 }
+

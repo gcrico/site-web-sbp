@@ -5775,8 +5775,8 @@ body.keyboard-focused .dropdown-content li:focus {
     display: none;
     border-bottom: 1px solid #ddd;
     -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 2rem
+    box-sizing: border-box;/*
+    padding: 2rem*/
 }
 
 .sidenav .collapsible,
