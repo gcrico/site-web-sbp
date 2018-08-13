@@ -1,3 +1,8 @@
+//idée pour la suite: animer les points d'un random vers le suivant (1 random par seconde)
+//animer la taille des points
+//effets 3d comme spheres, ombrage, etc.
+
+
 function setup() {
     createCanvas(512, 512);
     strokeWeight(10);
