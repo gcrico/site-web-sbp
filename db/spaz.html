@@ -18,12 +18,12 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js" type="text/javascript"></script>-->
     <link rel="stylesheet" media="screen" href="../css/style.css"> </head>
 
-<body class="dataBody" style="background-color: #03acad;color:white;height:100%">
+<body class="dataBody" style="background-color: #03acad;color:white;height:1050px">
     <nav>
         <div class="nav-wrapper teal lighten-2">
             <div class="container nav-content row"> <a href="../index.html" class="left brand-logo" style="font-family:knewave; margin-top:-4px;"><i class="material-icons md-36" style="margin-right:8px;margin-top:0px;">home</i>SBP</a>
                 <ul id="nav-mobile" class="right col s7 m5 l3">
-                    <li style="width:33%"><a href="#" style="margin-top:-4px;padding-left:24%;"><i class="material-icons md-36" style="margin-right:8px;margin-top:0px">notes</i></a></li>
+                    <li style="width:33%"><a href="/data.html" style="margin-top:-4px;padding-left:24%;"><i class="material-icons md-36" style="margin-right:8px;margin-top:0px">notes</i></a></li>
                     <li style="width:33%"><a href="#scatter" style="margin-top:-4px;padding-left:24%;"><i class="material-icons md-36" style="margin-right:8px;margin-top:0px">bubble_chart</i></a></li>
                     <li style="width:33%"><a href="#graph" style="margin-top:-4px;padding-left:24%;"><i class="material-icons md-36" style="margin-right:8px;margin-top:0px">show_chart</i></a></li>
                 </ul>
@@ -66,13 +66,23 @@
             </ul>
         </div>
     </div>
+    
     <div class="row">
         <div class="audioContainer container col s12 l6">
             <h2 class="audioTitle col push-m1"><img src="../svg/mic.svg" alt="mic" class="imgTags" style="margin-bottom:-2px;height:30px">rap:</h2>
+            <h2 class="download right col pull-s1 pull-m2"><a class="waves-effect waves-light btn" href="../mp3/LANDR-spaz-z-8.mp3" style="margin-left:-12px" download><i class="material-icons md-24" >get_app</i></a></h2>
             <div class="mediaPlayer">
                 <audio id="playerRap" controls>
+                    <source src="../mp3/LANDR-spaz-z-8.mp3" type="audio/mp3"> </audio>
+
+            </div>
+        </div>
+        <div class="audioContainer container col s12 l6">
+            <h2 class="audioTitle col push-m1"><img src="../svg/dj.svg" alt="dj" class="imgTags" style="margin-bottom:-2px;height:30px">beat:</h2>
+            <h2 class="download right col pull-s1 pull-m2"><a class="waves-effect waves-light btn" href="../mp3/spaz-g-5-m.mp3" download><i class="material-icons md-24" >get_app</i></a></h2>
+            <div class="mediaPlayer">
+                <audio id="playerBeat" controls loop>
                     <source src="../mp3/spaz-g-5-m.mp3" type="audio/mp3"> </audio>
-                    
             </div>
         </div>
     </div>
