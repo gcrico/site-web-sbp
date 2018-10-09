@@ -1,70 +1,63 @@
 //idée pour la suite: animer les points d'un random vers le suivant (1 random par seconde)
 //animer la taille des points
 //effets 3d comme spheres, ombrage, etc.
-
+var min_radius = 120;
+var radius = 200;
+var number_of_dots = 7;
+var min_size = 40;
+var max_size = 80;
+var circle_r = [];
+var circle_theta = [];
+var circle_size = [];
+var circle_fill = [];
+var x = [];
+var y = [];
 
 function setup() {
     createCanvas(512, 512);
     strokeWeight(10);
     // Initialize all values
-    offset = .5;
     
      fill('rgba(0, 0, 0, 0)');
     stroke(200);
     rect(0, 0, 512, 512);
-    
-    textSize(16);
+
     
         // Translate the origin point to the center of the screen
     translate(width / 2, height / 2);
     
+    for (i = 0; i < number_of_dots; i++) {
+        circle_r[i] = random(min_radius, radius);
+        circle_theta[i] = random(0, 2*Math.PI);
+        circle_size[i] = random(min_size, max_size);
+        circle_fill[i] = [255, random(100,255)];
+    }
     
-    s1 = random(40,150);
-    r1 = 20+s1;
-    theta1 = random(Math.PI/3-offset, Math.PI/3+offset) ;
-    f1 = s1+100;
-    
-    s2 = random(40,150);
-    r2 = 20+s2;
-    theta2 = random(3*Math.PI/3-offset, 3*Math.PI/3+offset);
-    f2= s2+100;
-    
-    s3 = random(40,150);
-    r3 = 20+s3;
-    theta3 = random(5*Math.PI/3-offset, 5*Math.PI/3+offset);
-    f3 = s3+100;
-    
-    f1 = f2 = f3 = 255;
-    
-    
-   
 
-    // Convert polar to cartesian
-    var x1 = r1 * cos(theta1);
-    var y1 = r1 * sin(theta1);
-    var x2 = r2 * cos(theta2);
-    var y2 = r2 * sin(theta2);
-    var x3 = r3 * cos(theta3);
-    var y3 = r3 * sin(theta3);
-    
     // Draw the ellipse at the cartesian coordinate
     ellipseMode(CENTER);
-    
+    fill(255);
     stroke(255);
-    strokeWeight(10);
-    line(x1, y1, x2, y2);
-    line(x2, y2, x3, y3);
-    line(x3, y3, x1, y1);
-    noStroke();
+    strokeWeight(0);
+
+
+    for (i = 0; i < number_of_dots; i++) {
+        fill(circle_fill[i]);
+        x[i] = circle_r[i] * cos(circle_theta[i]);
+        y[i] = circle_r[i] * sin(circle_theta[i]);
+        ellipse(x[i], y[i], circle_size[i], circle_size[i]);
+    }
     
-    fill(f1);
-    ellipse(x1, y1, s1, s1);
     
-    fill(f2);
-    ellipse(x2, y2, s2, s2);
+    stroke(255, 50);
     
-    fill(f3);
-    ellipse(x3, y3, s3, s3);
+    for (i = 0; i < number_of_dots; i++) {
+        for (j = 0; j < number_of_dots; j++) {
+            stroke(255, 50);
+            strokeWeight(8);
+            line(x[i], y[i], x[j], y[j]);
+        }
+    }
 
     
 }
