@@ -1,4 +1,4 @@
-d3.json("https://raw.githubusercontent.com/zacYP2/site-web-sbp/master/js/songData.json", function(err, songData) {
+d3.json("/js/songData.json", function(err, songData) {
 console.log(songData);
 if(err) console.log("error fetching data");
 	
