@@ -8874,3 +8874,9 @@ input[type=range]::-ms-thumb {
         margin-top: 1.2rem
     }
 }
+.didascalie {
+    
+    left:300px;
+    margin-left: 30%;
+    margin: 40px;
+}

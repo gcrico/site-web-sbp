@@ -2,20 +2,166 @@
    HTML5 CSS Reset Minified - Eric Meyer
    ========================================================================== */
 
-html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
-body{line-height:1}
-article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
-nav ul{list-style:none}
-blockquote,q{quotes:none}
-blockquote:before,blockquote:after,q:before,q:after{content:none}
-a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent;text-decoration:none}
-mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
-del{text-decoration:line-through}
-abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
-table{border-collapse:collapse;border-spacing:0}
-hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
-input,select{vertical-align:middle}
-li{list-style:none}
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent
+}
+
+body {
+    line-height: 1
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block
+}
+
+nav ul {
+    list-style: none
+}
+
+blockquote,
+q {
+    quotes: none
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: none
+}
+
+a {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    text-decoration: none
+}
+
+mark {
+    background-color: #ff9;
+    color: #000;
+    font-style: italic;
+    font-weight: bold
+}
+
+del {
+    text-decoration: line-through
+}
+
+abbr[title],
+dfn[title] {
+    border-bottom: 1px dotted;
+    cursor: help
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0
+}
+
+input,
+select {
+    vertical-align: middle
+}
+
+li {
+    list-style: none
+}
 
 
 /*=============================================================================My CSS==========================================================================*/
@@ -25,23 +171,29 @@ li{list-style:none}
     .mobileH1 {
         font-size: 8vw;
     }
+
     .about h1 {
         font-size: 5vw;
     }
+
     .espaces {
         letter-spacing: 20px;
     }
+
     .songTags {
         font-size: 16px;
     }
+
     .imgTags {
         width: 42px;
     }
+
     .audioTitle {
         font-size: 24px;
         margin-top: 20px;
         margin-bottom: -30px;
     }
+
     .download {
         margin-top: 16px;
     }
@@ -49,18 +201,18 @@ li{list-style:none}
     .lyrics_modal {
         font-size: 12px
     }
-    
+
     .lyrics_1 {
-        width:220px;
+        width: 220px;
     }
 
     .video_1 {
-        margin-left:-20px;
+        margin-left: -20px;
         width: 195px;
-        
+
     }
-    
-    
+
+
 }
 
 
@@ -70,32 +222,37 @@ li{list-style:none}
     .mobileH1 {
         font-size: 6vw;
     }
+
     .about h1 {
         font-size: 2vw;
     }
+
     .imgTags {
         width: 64px;
     }
+
     .audioTitle {
         font-size: 40px;
         margin-top: 0px;
         margin-bottom: -200px;
     }
+
     .download {
         margin-top: 4px;
     }
+
     .lyrics_modal {
         font-size: 18px
     }
-    
+
     .lyrics_1 {
-        width:330px;
+        width: 330px;
     }
 
     .video_1 {
-        margin-left:-20px;
+        margin-left: -20px;
     }
-    
+
 }
 
 /* ---- base ---- */
@@ -257,6 +414,7 @@ h5 {
     border-radius: 10px;
     opacity: 0.85;
     box-sizing: border-box;
+
     z-index:100 &.hide {
         display: none;
     }
@@ -374,3 +532,36 @@ h5 {
     width: 100%
 }
 
+
+.didascalie {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    letter-spacing: 3px;
+    font-size: 25px;
+    line-height: 0.2em;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 50px;
+    padding-left: 24px;
+    color: rgba(255, 255, 255, 0.84);
+    text-shadow: 2px 2px rgba(199, 229, 255, 0.68);
+
+
+
+
+}
+
+.narration {
+    width: 42%;
+    margin: 40px;
+    font-size: 20px;
+    text-align: left;
+}
+
+.titre-gauche {
+    margin-top: 100px;
+    text-align: left;
+
+
+
+}
