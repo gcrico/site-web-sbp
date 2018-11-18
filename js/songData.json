@@ -102,6 +102,15 @@
         , "type": "rap"
         , "emcees": ["Rasok", "GuiLLm"]
     }
+    , {
+        "name": "vasy"
+        , "id": "vasy"
+        , "created": "2018-11-15"
+        , "modified": "2018-11-17"
+        , "version": 18
+        , "modifiedBy": "Nestor"
+        , "type": "instru"
+    }
 
 
 ]
